@@ -21,11 +21,15 @@ function App() {
 const tasks = [
     {
         id: 1,
-        task: "Do this task",
+        task: "Add functionality to add tasks with form",
     },
     {
         id: 2,
-        task: "Do that task",
+        task: "Add ability to delete tasks as they're completed",
+    },
+    {
+        id: 3,
+        task: "Configure to use JSon file or a DB",
     },
 ];
 
