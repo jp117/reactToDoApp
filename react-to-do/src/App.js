@@ -7,11 +7,19 @@ import Container from "react-bootstrap/Container";
 import Tasks from "./components/Tasks";
 
 function App() {
+    const [task, setTask] = useState(tasks);
+    const newTask = (props) =>
+        setTask(
+            tasks.push({
+                id: tasks.length + 1,
+                task: props,
+            })
+        );
     return (
         <div className='App'>
             <Container>
                 <Header />
-                <ToDo />
+                <ToDo onSubmit={newTask} />
                 <Tasks tasks={tasks} />
             </Container>
         </div>
@@ -21,14 +29,10 @@ function App() {
 const tasks = [
     {
         id: 1,
-        task: "Add functionality to add tasks with form",
-    },
-    {
-        id: 2,
         task: "Add ability to delete tasks as they're completed",
     },
     {
-        id: 3,
+        id: 2,
         task: "Configure to use JSon file or a DB",
     },
 ];

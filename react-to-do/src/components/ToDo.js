@@ -1,16 +1,23 @@
 import React from "react";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import InputGroup from "react-bootstrap/InputGroup";
+import { useState } from "react";
 
 const ToDo = (props) => {
+    const [task, setTask] = useState("");
+
+    const handleChange = (e) => {
+        setTask(e.target.value);
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        props.onSubmit(task);
+        setTask("");
+    };
     return (
-        <div>
-            <InputGroup>
-                <Form.Control size='md' type='text' placeholder='Add new task' />
-                <Button variant='outline-primary'>Add New Task</Button>{" "}
-            </InputGroup>
-        </div>
+        <form action='' onSubmit={handleSubmit}>
+            <input type='text' onChange={handleChange} value={task} required />
+            <button>Add task</button>
+        </form>
     );
 };
 
