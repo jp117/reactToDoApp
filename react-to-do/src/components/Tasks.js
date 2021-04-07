@@ -1,11 +1,15 @@
-import React from 'react'
+import React from "react";
+import Task from "./Task";
 
-const Tasks = () => {
+const Tasks = (props) => {
+    const tasks = props.tasks;
     return (
-        <div className="tasks">
-            
+        <div className='tasks'>
+            {tasks.map((task) => (
+                <Task key={task.id} task={task.task} />
+            ))}
         </div>
-    )
-}
+    );
+};
 
-export default Tasks
+export default Tasks;
