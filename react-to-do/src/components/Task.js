@@ -6,9 +6,11 @@ function Task(props) {
         props.onClick(props.task.id);
     };
     return (
-        <div className='task' key={props.id} onClick={handleDelete}>
+        <div className='task' key={props.id}>
             {props.task.task}
-            <button className='deleteBtn'>Delete Task</button>
+            <button className='deleteBtn' onClick={handleDelete}>
+                Delete Task
+            </button>
         </div>
     );
 }
