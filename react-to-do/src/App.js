@@ -24,7 +24,6 @@ function App() {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                id: tasks.length + 1,
                 task: props,
             }),
         }).then((res) =>
@@ -34,12 +33,23 @@ function App() {
         );
     };
 
+    const deleteTask = (props) => {
+        fetch(`http://localhost:3001/tasks/${props}`, {
+            method: "DELETE",
+        });
+        setTasks(
+            [...tasks].filter((task) => {
+                return task.id !== props;
+            })
+        );
+    };
+
     return (
         <div className='App'>
             <Container>
                 <Header />
                 <ToDo onSubmit={newTask} />
-                {tasks && <Tasks tasks={tasks} />}
+                {tasks && <Tasks tasks={tasks} onClick={deleteTask} />}
             </Container>
         </div>
     );

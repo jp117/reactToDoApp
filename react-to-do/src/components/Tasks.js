@@ -6,7 +6,7 @@ const Tasks = (props) => {
     return (
         <div className='tasks'>
             {(tasks || []).map((task) => (
-                <Task key={task.id} task={task.task} />
+                <Task key={task.id} task={task} onClick={props.onClick} />
             ))}
         </div>
     );

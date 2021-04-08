@@ -9,9 +9,9 @@ const ToDo = (props) => {
     };
 
     const handleSubmit = (event) => {
-        event.preventDefault();
         props.onSubmit(task);
         setTask("");
+        event.preventDefault();
     };
     return (
         <form action='' onSubmit={handleSubmit}>
