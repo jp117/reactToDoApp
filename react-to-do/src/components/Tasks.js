@@ -5,7 +5,7 @@ const Tasks = (props) => {
     const tasks = props.tasks;
     return (
         <div className='tasks'>
-            {tasks.map((task) => (
+            {(tasks || []).map((task) => (
                 <Task key={task.id} task={task.task} />
             ))}
         </div>
